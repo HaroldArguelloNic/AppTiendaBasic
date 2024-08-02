@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "5232667091",
+    "project_id": "eshopbasic-9eaaf",
+    "storage_bucket": "eshopbasic-9eaaf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:5232667091:android:1722dce9ce5ca664506726",
+        "android_client_info": {
+          "package_name": "com.harold.eshopbasic"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDkzdMMTkm6mCxj1jFULhH9NSGLSXKecLg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
