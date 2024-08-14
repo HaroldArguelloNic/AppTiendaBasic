@@ -1,3 +1,27 @@
 <resources>
     <string name="app_name">EshopBasic</string>
+    <string name="name">Nombre</string>
+    <string name="address">Dirección</string>
+    <string name="phone">Telefono</string>
+    <string name="password">Password</string>
+    <string name="Register">Registrarse</string>
+    <string name="lastName">Apellido</string>
+    <string name="email">Email</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="last_name_cant_be_empty">El apellido no puede estar vacio</string>
+    <string name="first_name_cant_be_empty">El nombre no puede estar vacio</string>
+    <string name="email_cant_be_empty">El correo no puede estar vacio</string>
+    <string name="valid_email">verifica el correo</string>
+    <string name="password_cant_be_empty">El password no puede estar vacio</string>
+    <string name="password_at_least_six">El password no puede ser inferior a 6 caracteres</string>
+    <string name="signed_up_successfully">Se ha registrado de forma exitosa</string>
+    <string name="error_occurred">Ha ocurrido un error</string>
+    <string name="g_the_right_address">El Lugar para comprar\n cualquier día</string>
+    <string name="g_best_quality">Con la mejor calidad</string>
+    <string name="g_start">Inicio</string>
+    <string name="g_app_name">EshopBasic</string>
+    <string name="g_register">Registro</string>
+    <string name="g_log_in">Log In</string>
+    <string name="g_do_you_have_an_account_log_in">Ya tienes una cuenta?</string>
 </resources>

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -13,30 +12,153 @@
         app:layout_constraintBottom_toTopOf="@+id/guidelineTop2Register"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guidelineTopRegister"
-        />
+        app:layout_constraintTop_toTopOf="@+id/guidelineTopRegister">
+
+    </ImageView>
 
 
     <EditText
+        android:id="@+id/etName"
         android:layout_width="300dp"
         android:layout_height="50dp"
-        android:hint="Nombre"
         android:layout_marginTop="30dp"
+        android:hint="@string/name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageperfil" />
+        app:layout_constraintTop_toBottomOf="@+id/imageperfil">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guidelineTopRegister"
+    </EditText>
+
+    <EditText
+        android:id="@+id/etLastName"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:hint="@string/lastName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etName"
+
+        >
+
+    </EditText>
+
+    <EditText
+        android:id="@+id/etAddress"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:hint="@string/address"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etLastName"
+
+        >
+
+    </EditText>
+
+    <EditText
+        android:id="@+id/etPhone"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:hint="@string/phone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etAddress"
+
+        >
+
+    </EditText>
+
+    <EditText
+        android:id="@+id/etEmail"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:hint="@string/email"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etPhone"
+
+        >
+
+    </EditText>
+
+    <EditText
+        android:id="@+id/etPassword"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:hint="@string/password"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etEmail"
+
+        >
+
+    </EditText>
+
+<Button
+        android:id="@+id/btnRegister"
+        android:layout_width="300dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="35dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:text="@string/Register"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etPassword">
+
+</Button>
+
+<com.google.android.material.progressindicator.CircularProgressIndicator
+    android:id="@+id/progress_circular"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:layout_constraintStart_toStartOf="@id/btnRegister"
+    app:layout_constraintEnd_toEndOf="@id/btnRegister"
+    app:layout_constraintTop_toTopOf="@id/btnRegister"
+    android:indeterminate="true"
+    >
+
+</com.google.android.material.progressindicator.CircularProgressIndicator>
+
+    <TextView
+        android:id="@+id/tv_dont_have_an_account"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.05" />
+        android:layout_marginTop="1dp"
+        android:fontFamily="sans-serif"
+        android:text="@string/g_do_you_have_an_account_log_in"
+        android:textColor="@color/g_hint"
+        android:textSize="11sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/btnRegister"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        >
+
+    </TextView>
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guidelineTop2Register"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.25" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+android:id="@+id/guidelineTopRegister"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:orientation="horizontal"
+app:layout_constraintGuide_percent="0.05"
+    >
+
+</androidx.constraintlayout.widget.Guideline>
+
+<androidx.constraintlayout.widget.Guideline
+android:id="@+id/guidelineTop2Register"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:orientation="horizontal"
+app:layout_constraintGuide_percent="0.25">
+
+</androidx.constraintlayout.widget.Guideline>
+    </androidx.constraintlayout.widget.ConstraintLayout>

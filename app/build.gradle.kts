@@ -52,7 +52,13 @@ dependencies {
     implementation(libs.androidx.hilt.lifecycle.viewmodel)
     implementation(libs.androidx.lifecycle.viewmodel.android)
     implementation(libs.androidx.fragment.ktx)
+    implementation(libs.firebase.firestore.ktx)
+    implementation(libs.firebase.storage.ktx)
+    implementation(libs.androidx.swiperefreshlayout)
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.play.services.analytics.impl)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
 }
