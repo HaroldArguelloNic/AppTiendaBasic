@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".activities.LoginFragment">
 
     <ImageView
         android:id="@+id/imageView"
@@ -22,7 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="35sp"
-        android:text="Bienvenido\n a la tienda"
+        android:text="@string/welcome"
         android:textSize="28sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/imageView"
@@ -30,60 +32,89 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:hint="Usuario"
-        android:inputType="textEmailAddress"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
-        app:layout_constraintEnd_toStartOf="@+id/guidelineRightLogin"
-        app:layout_constraintStart_toStartOf="@+id/guidelineLeftLogin"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/etName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/labelname"
+        android:maxWidth="@dimen/custom_max_width"
+        android:minWidth="@dimen/custom_min_width"
+        app:boxBackgroundColor="@color/white"
+        android:textColorHint="@color/g_blue"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
 
-    <EditText
+        app:layout_constraintBottom_toBottomOf="@id/imageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/imageView">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="@string/name"
+            />
+
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/editText2"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:hint="password"
-
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:hint="@string/password"
         android:inputType="textPassword"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
-        app:layout_constraintEnd_toStartOf="@+id/guidelineRightLogin"
-        app:layout_constraintStart_toStartOf="@+id/guidelineLeftLogin"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
+        app:boxBackgroundColor="@color/white"
+        app:placeholderText="@string/password"
+        android:textColorHint="@color/g_blue"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:maxWidth="@dimen/custom_max_width"
+        android:minWidth="@dimen/custom_min_width"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etName"
+        >
 
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/password"
+            android:textColor="@color/black"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <androidx.appcompat.widget.AppCompatButton
+    <Button
         android:layout_width="150dp"
         android:layout_height="wrap_content"
+        android:text="@string/login"
+        android:textStyle="bold"
+        style="@style/Widget.MaterialComponents.Button"
         app:layout_constraintBottom_toTopOf="@+id/guidelineTopLogin"
         app:layout_constraintEnd_toStartOf="@+id/guidelineRightLogin"
         app:layout_constraintStart_toStartOf="@+id/guidelineLeftLogin"
-        app:layout_constraintTop_toTopOf="@+id/editText2"
-        android:text="LOG IN"
-        android:textStyle="bold"
-        android:background="@color/g_white"
-         />
+        app:layout_constraintTop_toTopOf="@+id/editText2" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="55dp"
-
-        android:text="Tu primera vez?"
+        android:layout_height="48dp"
+        android:text="@string/first_try"
+        android:layout_marginEnd="55dp"
+        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guidelineRightLogin"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guidelineTopLogin" />
 
-    <TextView
+    <Button
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Registrate"
-        android:layout_marginLeft="55dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="55dp"
+        android:text="@string/Register"
         android:textStyle="bold"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guidelineLeftLogin"
@@ -109,4 +140,5 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.7" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
