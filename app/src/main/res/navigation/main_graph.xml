@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/introductionFragment">
+    <fragment
+        android:id="@+id/introductionFragment"
+        android:name="com.harold.eshopbasic.activities.IntroductionFragment"
+        android:label="fragment_introduction"
+        tools:layout="@layout/fragment_introduction" >
+        <action
+            android:id="@+id/action_introductionFragment_to_accountOptionFragment"
+            app:destination="@id/accountOptionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/accountOptionFragment"
+        android:name="com.harold.eshopbasic.activities.AccountOptionFragment"
+        android:label="fragment_account_option"
+        tools:layout="@layout/fragment_account_option" >
+        <action
+            android:id="@+id/action_accountOptionFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.harold.eshopbasic.activities.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" />
+    <argument
+        android:name="name"
+        app:argType="string"
+        android:defaultValue="Guest" />
+</navigation>
