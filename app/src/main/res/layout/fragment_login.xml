@@ -52,7 +52,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
-            android:text="@string/name"
             />
 
 
@@ -65,9 +64,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:hint="@string/password"
-        android:inputType="textPassword"
         app:boxBackgroundColor="@color/white"
-        app:placeholderText="@string/password"
         android:textColorHint="@color/g_blue"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:maxWidth="@dimen/custom_max_width"
@@ -75,13 +72,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etName"
+        app:passwordToggleEnabled="true"
         >
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/password"
             android:textColor="@color/black"
+            android:inputType="textPassword"
             />
     </com.google.android.material.textfield.TextInputLayout>
 

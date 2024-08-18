@@ -17,6 +17,13 @@ lifecycleViewmodelAndroid = "2.8.4"
 fragmentKtx = "1.8.2"
 navigationFragmentKtx = "2.7.7"
 navigationUiKtx = "2.7.7"
+androidxNavigationSafeargsKotlinGradlePlugin = "2.7.7"
+androidxNavigationSafeargsGradlePlugin = "2.7.7"
+firebaseFirestoreKtx = "25.0.0"
+firebaseStorageKtx = "21.0.0"
+firebaseBom = "33.1.1"
+services = "4.4.2"
+
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -27,17 +34,25 @@ androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
-firebase-auth = { group = "com.google.firebase", name = "firebase-auth", version.ref = "firebaseAuth" }
 dagger = { group = "com.google.dagger", name = "dagger", version.ref = "dagger" }
 androidx-hilt-lifecycle-viewmodel = { group = "androidx.hilt", name = "hilt-lifecycle-viewmodel", version.ref = "hiltLifecycleViewmodel" }
 androidx-lifecycle-viewmodel-android = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-android", version.ref = "lifecycleViewmodelAndroid" }
 androidx-fragment-ktx = { group = "androidx.fragment", name = "fragment-ktx", version.ref = "fragmentKtx" }
 androidx-navigation-fragment-ktx = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigationFragmentKtx" }
 androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigationUiKtx" }
+androidx-androidx-navigation-safeargs-kotlin-gradle-plugin = { group = "androidx.navigation.safeargs.kotlin", name = "androidx.navigation.safeargs.kotlin.gradle.plugin", version.ref = "androidxNavigationSafeargsKotlinGradlePlugin" }
+androidx-androidx-navigation-safeargs-gradle-plugin = { group = "androidx.navigation.safeargs", name = "androidx.navigation.safeargs.gradle.plugin", version.ref = "androidxNavigationSafeargsGradlePlugin" }
+firebase-firestore-ktx = { group = "com.google.firebase", name = "firebase-firestore-ktx", version.ref = "firebaseFirestoreKtx" }
+firebase-storage-ktx = { group = "com.google.firebase", name = "firebase-storage-ktx", version.ref = "firebaseStorageKtx" }
+firebase-boom = { module = "com.google.firebase:firebase-bom", version.ref = 'firebaseBom'}
+firebase-crashlitycs = {module = "com.google.firebase:firebase-crashlytics"}
+firebase-auth = {module = "com.google.firebase:firebase-auth-ktx"}
+firrebase-firestore = {module = "com.google.firebase:firebase-firestore"}
+
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-google-gms-google-services = { id = "com.google.gms.google-services", version.ref = "googleGmsGoogleServices" }
+googleServices = { id = "com.google.gms.google-services", version.ref = "services" }
 dagger = { id = "com.google.dagger.hilt.android", version.ref="dagger"}
 

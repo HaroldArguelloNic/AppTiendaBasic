@@ -11,4 +11,10 @@
     <string name="welcome">Bienvenido\n a la tienda</string>
     <string name="labelname">Nombre</string>
     <string name="password">password</string>
+    <string name="lastname">Apellido</string>
+    <string name="email">Correo</string>
+    <string name="name_cant_be_empty">El campo nombre no puede estar vacio</string>
+    <string name="last_name_cant_be_empty">El campo apellido no puede estar vacio</string>
+    <string name="email_cant_be_empty">El campo correo no puede estar vacio</string>
+    <string name="password_cant_be_empty">El campo password no puede ser menor a 6 caracteres</string>
 </resources>
