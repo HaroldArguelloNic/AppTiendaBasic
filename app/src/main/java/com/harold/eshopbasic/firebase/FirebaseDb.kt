@@ -15,7 +15,7 @@ class FirebaseDb {
     private val categoriesCollection = Firebase.firestore.collection("categorias")
     private val firebaseStorage = Firebase.storage.reference
 
-    val userUid = FirebaseAuth.getInstance().currentUser?.uid
+    private val userUid = FirebaseAuth.getInstance().currentUser?.uid
 
     private val userCartCollection = userUid?.let {
         Firebase.firestore.collection("usuarios").document(it).collection("cart")
@@ -61,6 +61,7 @@ class FirebaseDb {
         firstName: String,
         lastName: String,
         email: String,
+        password: String,
         imageName: String,
         onResult: (User?, String?) -> Unit,
     ) {
@@ -70,7 +71,7 @@ class FirebaseDb {
                 .child(imageName).downloadUrl.addOnCompleteListener {
                     if (it.isSuccessful) {
                         val imageUrl = it.result.toString()
-                        val user = User(firstName, lastName, email, imageUrl)
+                        val user = User(firstName, lastName, email,password, imageUrl)
                         onResult(user, null)
                     } else
                         onResult(null, it.exception.toString())

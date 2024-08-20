@@ -10,6 +10,5 @@ data class User (
 
     ){
     constructor(): this("","","","","","")
-    constructor(firstName: String, lastName: String, email: String, imageUrl: String) : this()
 
 }

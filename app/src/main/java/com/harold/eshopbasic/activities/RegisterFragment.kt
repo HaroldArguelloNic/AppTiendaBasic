@@ -1,10 +1,13 @@
 package com.harold.eshopbasic.activities
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.harold.eshopbasic.R
 import com.harold.eshopbasic.data.User
 import com.harold.eshopbasic.databinding.FragmentRegisterBinding
@@ -40,10 +43,10 @@ class RegisterFragment : Fragment() {
     }
 
     private fun registerUser() {
-        val txtName = binding.etName.toString().trim()
-        val txtLastName = binding.etLastName.toString().trim()
-        val txtEmail = binding.etEmail.toString().trim()
-        val txtPassword = binding.etPassword.toString()
+        val txtName = binding.etName.getText().toString().trim()
+        val txtLastName = binding.etLastName.getText().toString().trim()
+        val txtEmail = binding.etEmail.getText().toString().trim()
+        val txtPassword = binding.etPassword.getText().toString().trim()
 
         if (txtName.isEmpty()) {
             binding.etName.apply {
@@ -73,10 +76,24 @@ class RegisterFragment : Fragment() {
                 requestFocus()
             }
         }
-        val user= User(txtName,txtLastName,txtEmail,"")
+        val user= User(txtName,txtLastName,txtEmail,txtPassword,"","")
         FirebaseDb().createNewUser(txtEmail,txtPassword)
-        val userUid=FirebaseDb().getUser().toString()
-        FirebaseDb().saveUserInformation(userUid,user)
+            .addOnCompleteListener() {task ->
+                if (task.isSuccessful) {
+//                     Sign in success, update UI with the signed-in user's information
+
+                    val userUid=FirebaseDb().getUser()
+
+                    FirebaseDb().saveUserInformation(userUid.toString(),user)
+
+                    Toast.makeText(context, "Registro exitoso", Toast.LENGTH_SHORT).show()
+                    findNavController().navigate(R.id.action_registerFragment_to_homeFragment)
+                } else {
+                    Toast.makeText(context, "Fallo en el registro", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+
 
 
 //        auth.createUserWithEmailAndPassword(txtEmail, txtPassword)
@@ -95,7 +112,7 @@ class RegisterFragment : Fragment() {
 //                    ).show()
 //
 //                }
-//                findNavController().navigate(R.id.action_registerFragment_to_homeFragment)
+//
 //            }
        }
     }
