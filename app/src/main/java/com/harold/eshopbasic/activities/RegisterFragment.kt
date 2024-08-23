@@ -87,7 +87,7 @@ class RegisterFragment : Fragment() {
                     FirebaseDb().saveUserInformation(userUid.toString(),user)
 
                     Toast.makeText(context, "Registro exitoso", Toast.LENGTH_SHORT).show()
-                    findNavController().navigate(R.id.action_registerFragment_to_homeFragment)
+                    findNavController().navigate(R.id.action_registerFragment_to_principalShoppingFragment)
                 } else {
                     Toast.makeText(context, "Fallo en el registro", Toast.LENGTH_SHORT).show()
                 }

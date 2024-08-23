@@ -6,6 +6,7 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.UploadTask
 import com.google.firebase.storage.ktx.storage
+import com.harold.eshopbasic.data.Categorias
 import com.harold.eshopbasic.data.User
 
 
@@ -94,6 +95,21 @@ class FirebaseDb {
             }
 
         }
+    fun getCategorias() {
+        var listCategoria:List<Categorias>
+        categoriesCollection.orderBy("ranks").get()
+            .addOnSuccessListener { document ->
+                if(document != null){
+                    for(doc in document){
+                        var name = doc.get("name").toString()
+                        var productos = doc.get("productos")
+                        var ranks = doc.get("ranks")
+                        var image = doc.get("image").toString()
+                        listOf(Categorias(name, productos as Int,ranks as Int,image)).also { listCategoria = it }
+                    }
+                }
 
+            }
 
+    }
 }

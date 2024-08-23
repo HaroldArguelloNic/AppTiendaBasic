@@ -55,7 +55,7 @@ class LoginFragment : Fragment() {
             FirebaseDb().loginUser(txtEmail,txtPassword)
                 .addOnCompleteListener() { task ->
                     if(task.isSuccessful){
-                        findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+                        findNavController().navigate(R.id.action_loginFragment_to_principalShoppingFragment)
                     }else {
                         Toast.makeText(context, "Error en correo o password", Toast.LENGTH_SHORT).show()
                     }

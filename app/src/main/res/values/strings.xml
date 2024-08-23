@@ -17,4 +17,5 @@
     <string name="last_name_cant_be_empty">El campo apellido no puede estar vacio</string>
     <string name="email_cant_be_empty">El campo correo no puede estar vacio</string>
     <string name="password_cant_be_empty">El campo password no puede ser menor a 6 caracteres</string>
+    <string name="categorias">Categorias</string>
 </resources>
