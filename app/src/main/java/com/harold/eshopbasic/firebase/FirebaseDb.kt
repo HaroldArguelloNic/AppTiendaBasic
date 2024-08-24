@@ -2,25 +2,28 @@ package com.harold.eshopbasic.firebase
 
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.UploadTask
-import com.google.firebase.storage.ktx.storage
 import com.harold.eshopbasic.data.Categorias
 import com.harold.eshopbasic.data.User
 
 
 class FirebaseDb {
-    private val usersCollectionRef = Firebase.firestore.collection("usuarios")
-    private val productsCollection = Firebase.firestore.collection("productos")
-    private val categoriesCollection = Firebase.firestore.collection("categorias")
-    private val firebaseStorage = Firebase.storage.reference
+    private val firestore = FirebaseFirestore.getInstance()
+    private val storage = FirebaseStorage.getInstance()
+    private val usersCollectionRef = firestore.collection("usuarios")
+    private val productsCollection = firestore.collection("productos")
+    private val categoriesCollection = firestore.collection("categorias")
+    private val firebaseStorage = storage.reference
 
     private val userUid = FirebaseAuth.getInstance().currentUser?.uid
 
-    private val userCartCollection = userUid?.let {
-        Firebase.firestore.collection("usuarios").document(it).collection("cart")
-    }
+//    private val userCartCollection = userUid?.let {
+//        userAddressesCollection?.document(it)!!.collection("cart")
+//    }
     private val userAddressesCollection = userUid?.let {
         Firebase.firestore.collection("usuarios").document(it).collection("direccion")
 
@@ -43,11 +46,7 @@ class FirebaseDb {
         password: String
     ) = firebaseAuth.signInWithEmailAndPassword(email, password)
 
-    fun getUser() = FirebaseAuth.getInstance().currentUser?.let {
-        usersCollectionRef
-        .document(it.uid)
-    }
-
+    fun getUser() = FirebaseAuth.getInstance().currentUser!!.uid
 
     fun uploadUserProfileImage(image: ByteArray, imageName: String): UploadTask {
         val imageRef = firebaseStorage.child("profileImages")
@@ -72,13 +71,13 @@ class FirebaseDb {
                 .child(imageName).downloadUrl.addOnCompleteListener {
                     if (it.isSuccessful) {
                         val imageUrl = it.result.toString()
-                        val user = User(firstName, lastName, email,password, imageUrl)
+                        val user = User(firstName, lastName, email, password, imageUrl)
                         onResult(user, null)
                     } else
                         onResult(null, it.exception.toString())
 
                 } else {
-            val user = User(firstName, lastName, email, "","")
+            val user = User(firstName, lastName, email, "", "")
             onResult(user, null)
         }
     }
@@ -95,21 +94,34 @@ class FirebaseDb {
             }
 
         }
-    fun getCategorias() {
-        var listCategoria:List<Categorias>
+
+    fun getCategorias(): List<Categorias> {
+        var lista: MutableList<Categorias> = emptyList<Categorias>().toMutableList()
         categoriesCollection.orderBy("ranks").get()
             .addOnSuccessListener { document ->
-                if(document != null){
-                    for(doc in document){
-                        var name = doc.get("name").toString()
-                        var productos = doc.get("productos")
-                        var ranks = doc.get("ranks")
-                        var image = doc.get("image").toString()
-                        listOf(Categorias(name, productos as Int,ranks as Int,image)).also { listCategoria = it }
+                if (document != null) {
+                    for (doc in document.toObjects(Categorias::class.java)) {
+
+//                        var name = doc.get("name").toString()
+//                        var productos = doc.get("productos")
+//                        var ranks = doc.get("ranks")
+//                        var image = doc.get("image").toString()
+
+//                            Categorias(
+//                                name,
+//                                productos as Int,
+//                                ranks as Int,
+//                                image
+
+//                            )
+//                        )
+                        lista.add(doc)
                     }
+
                 }
 
             }
 
+        return lista.toList()
     }
 }

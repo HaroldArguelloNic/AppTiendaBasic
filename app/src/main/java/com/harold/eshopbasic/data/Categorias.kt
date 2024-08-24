@@ -1,10 +1,10 @@
 package com.harold.eshopbasic.data
 
-class Categorias(
-    name:String,
-    productos: Int,
-    ranks: Int,
-    image: String
+data class Categorias(
+    val name:String,
+    val productos: Int,
+    val ranks: Int,
+    val image: String
 ) {
   constructor() : this("",0,0,"")
 }
