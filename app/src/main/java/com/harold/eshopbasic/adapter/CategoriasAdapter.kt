@@ -3,25 +3,35 @@ package com.harold.eshopbasic.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.harold.eshopbasic.R
 import com.harold.eshopbasic.data.Categorias
-import com.harold.eshopbasic.databinding.CategoriasItemBinding
 
-class CategoriasAdapter(val categorias: List<Categorias>) :
+class CategoriasAdapter(private val categorias: List<Categorias>) :
     RecyclerView.Adapter<CategoriasViewHolder>() {
+        private val rows = mutableListOf<Categorias>()
+
+    init {
+        rows.addAll(0, categorias)
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoriasViewHolder {
-        val view = CategoriasItemBinding.inflate(
-            LayoutInflater.from(parent.context), parent, false
-        )
-        return CategoriasViewHolder(view)
+        val layoutInflater = LayoutInflater.from(parent.context)
+
+        return CategoriasViewHolder(layoutInflater.inflate(R.layout.categorias_item,parent,false))
     }
 
     override fun getItemCount(): Int {
-        return categorias.size
+
+        return rows.size
     }
 
     override fun onBindViewHolder(holder: CategoriasViewHolder, position: Int) {
-        holder.bind(categorias[position])
+        holder.nameCategoria.text = rows[position].name
     }
 
-
+    fun updateList(categorias: List<Categorias>) {
+        rows.clear()
+        rows.addAll(categorias)
+        notifyDataSetChanged()
+    }
 }

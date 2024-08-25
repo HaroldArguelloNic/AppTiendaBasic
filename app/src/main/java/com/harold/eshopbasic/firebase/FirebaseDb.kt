@@ -1,17 +1,25 @@
 package com.harold.eshopbasic.firebase
 
+
+import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.QueryDocumentSnapshot
+import com.google.firebase.firestore.QuerySnapshot
 import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.firestore.toObject
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.UploadTask
+import com.harold.eshopbasic.adapter.CategoriasAdapter
 import com.harold.eshopbasic.data.Categorias
 import com.harold.eshopbasic.data.User
 
 
+
 class FirebaseDb {
+
     private val firestore = FirebaseFirestore.getInstance()
     private val storage = FirebaseStorage.getInstance()
     private val usersCollectionRef = firestore.collection("usuarios")
@@ -21,7 +29,7 @@ class FirebaseDb {
 
     private val userUid = FirebaseAuth.getInstance().currentUser?.uid
 
-//    private val userCartCollection = userUid?.let {
+    //    private val userCartCollection = userUid?.let {
 //        userAddressesCollection?.document(it)!!.collection("cart")
 //    }
     private val userAddressesCollection = userUid?.let {
@@ -95,33 +103,24 @@ class FirebaseDb {
 
         }
 
-    fun getCategorias(): List<Categorias> {
-        var lista: MutableList<Categorias> = emptyList<Categorias>().toMutableList()
+
+    fun getCategorias(categoriaAdapte: CategoriasAdapter) {
+        val aldata = mutableListOf<Categorias>()
+
         categoriesCollection.orderBy("ranks").get()
-            .addOnSuccessListener { document ->
-                if (document != null) {
-                    for (doc in document.toObjects(Categorias::class.java)) {
+          .addOnSuccessListener { result ->
+              for(document in result) {
+              val name = document["name"].toString()
+              val productos = document["productos"].toString()
+              val ranks= document["ranks"].toString()
+              val image = document["image"].toString()
 
-//                        var name = doc.get("name").toString()
-//                        var productos = doc.get("productos")
-//                        var ranks = doc.get("ranks")
-//                        var image = doc.get("image").toString()
+              aldata.add(Categorias(name,productos,ranks,image))
+                println("$aldata")
+              }
 
-//                            Categorias(
-//                                name,
-//                                productos as Int,
-//                                ranks as Int,
-//                                image
+              categoriaAdapte.updateList(aldata)
+          }
 
-//                            )
-//                        )
-                        lista.add(doc)
-                    }
-
-                }
-
-            }
-
-        return lista.toList()
     }
 }

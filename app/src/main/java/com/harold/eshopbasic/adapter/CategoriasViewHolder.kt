@@ -1,12 +1,13 @@
 package com.harold.eshopbasic.adapter
 
+import android.view.View
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.harold.eshopbasic.data.Categorias
-import com.harold.eshopbasic.databinding.CategoriasItemBinding
+import com.harold.eshopbasic.R
 
-class CategoriasViewHolder(binding: CategoriasItemBinding): RecyclerView.ViewHolder(binding.root) {
+class CategoriasViewHolder(view: View): RecyclerView.ViewHolder(view) {
 
-    fun bind(categoria: Categorias) {
+    val nameCategoria = view.findViewById<TextView>(R.id.tvCategoriaItem)
+
 
     }
-}
