@@ -36,7 +36,7 @@ class PrincipalShoppingFragment : Fragment() {
 
     private fun initRecyclerView() {
         val rvCategoria = binding.rvCategorias
-        rvCategoria.layoutManager = LinearLayoutManager(context)
+        rvCategoria.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         val adapterCategoria = CategoriasAdapter(emptyList())
         rvCategoria.adapter = adapterCategoria
         FirebaseDb().getCategorias(adapterCategoria)
