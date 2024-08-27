@@ -1,7 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
-    alias(libs.plugins.googleServices)
+    alias(libs.plugins.google.gms.google.services)
 
 }
 
@@ -51,12 +51,14 @@ dependencies {
     implementation(libs.dagger)
     implementation(libs.androidx.hilt.lifecycle.viewmodel)
     implementation(libs.androidx.lifecycle.viewmodel.android)
-    implementation(libs.androidx.navigation.fragment.ktx)
-    implementation(libs.androidx.navigation.ui.ktx)
-    implementation(libs.firebase.storage.ktx)
-    implementation(platform(libs.firebase.boom))
+    implementation(libs.androidx.fragment.ktx)
     implementation(libs.firebase.firestore.ktx)
+    implementation(libs.firebase.storage.ktx)
+    implementation(libs.androidx.swiperefreshlayout)
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.play.services.analytics.impl)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
 }
