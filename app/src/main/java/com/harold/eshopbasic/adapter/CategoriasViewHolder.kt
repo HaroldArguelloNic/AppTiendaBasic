@@ -9,5 +9,4 @@ class CategoriasViewHolder(view: View): RecyclerView.ViewHolder(view) {
 
     val nameCategoria = view.findViewById<TextView>(R.id.tvCategoriaItem)
 
-
     }

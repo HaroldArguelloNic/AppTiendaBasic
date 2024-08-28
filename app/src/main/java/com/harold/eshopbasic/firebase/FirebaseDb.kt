@@ -1,19 +1,17 @@
 package com.harold.eshopbasic.firebase
 
 
-import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.QueryDocumentSnapshot
-import com.google.firebase.firestore.QuerySnapshot
 import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.firestore.toObject
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.UploadTask
 import com.harold.eshopbasic.adapter.CategoriasAdapter
+import com.harold.eshopbasic.adapter.ProductosAdapter
 import com.harold.eshopbasic.data.Categorias
+import com.harold.eshopbasic.data.Product
 import com.harold.eshopbasic.data.User
 
 
@@ -121,6 +119,26 @@ class FirebaseDb {
 
               categoriaAdapte.updateList(aldata)
           }
+
+    }
+
+    fun getProduct(productoAdapte: ProductosAdapter) {
+        val allproduct= mutableListOf<Product>()
+        productsCollection.orderBy("category").get()
+            .addOnSuccessListener { result ->
+                for(document in result) {
+                    val id = document["id"].toString()
+                    val title = document["title"].toString()
+                    val description= document["description"].toString()
+                    val category = document["category"].toString()
+                    val image = document["image"].toString()
+                    val price= document["price"].toString()
+                        allproduct.add(Product(id,title, description,category,"",price,"",image,"","",0))
+                    println(allproduct)
+                }
+
+                productoAdapte.updateList(allproduct)
+            }
 
     }
 }

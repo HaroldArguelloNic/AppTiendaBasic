@@ -1,13 +1,9 @@
 package com.harold.eshopbasic.data
-import android.os.Parcelable
-//import kotlinx.parcelize.Parcelize
-//import kotlinx.parcelize.RawValue
-import java.util.*
 import kotlin.collections.HashMap
 
 
 data class Product(
-    val id :Int,
+    val id: String? = "",
     val title: String? = "",
     val description: String? = "",
     val category: String? = "",
@@ -15,27 +11,26 @@ data class Product(
     val price: String? = "",
     val seller: String? = "",
 
-    val images: HashMap<String, Any>?=null,
-    val colors: HashMap<String, Any>?=null,
-    val sizes: HashMap<String, Any>?=null,
+    val images: String? ="",
+    val colors: String? ="",
+    val sizes: String? ="",
     val orders:Int = 0,
-    val offerTime: Date? = null,
-    val sizeUnit:String?=null
 
-)
+
+    )
 {
     constructor(
-        id :Int,
+        id : String? = "",
         title: String? = "",
         description: String? = "",
         category: String? = "",
         price: String? = "",
         seller: String? = "",
-        images: HashMap<String, Any>,
-        colors: HashMap<String, Any>,
-        sizes: HashMap<String, Any>
-    ) : this(id,title,description,category,null,price,seller, images, colors, sizes,0,null,null)
+        images: String?,
+        colors: String?,
+        sizes: String?
+    ) : this(id,title,description,category,null,price,seller, images, colors, sizes,0)
 
-    constructor():this(0,"","","","",null,null,null)
+    constructor():this("","","","","",null,null,"")
 }
 

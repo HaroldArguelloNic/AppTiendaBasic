@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.firebase.ktx.Firebase
 import com.harold.eshopbasic.adapter.CategoriasAdapter
+import com.harold.eshopbasic.adapter.ProductosAdapter
 import com.harold.eshopbasic.databinding.FragmentPrincipalShoppingBinding
 import com.harold.eshopbasic.firebase.FirebaseDb
 import com.harold.eshopbasic.provider.CategoriasProvider
@@ -25,6 +27,7 @@ class PrincipalShoppingFragment : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentPrincipalShoppingBinding.inflate(inflater, container, false)
         initRecyclerView()
+        initRecyclerVProductos()
 
         return binding.root
     }
@@ -40,6 +43,15 @@ class PrincipalShoppingFragment : Fragment() {
         val adapterCategoria = CategoriasAdapter(emptyList())
         rvCategoria.adapter = adapterCategoria
         FirebaseDb().getCategorias(adapterCategoria)
+
+    }
+
+     fun initRecyclerVProductos() {
+        val rvProductos = binding.rvProductos
+        rvProductos.layoutManager = LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false)
+        val adapterProducto = ProductosAdapter(emptyList())
+        rvProductos.adapter = adapterProducto
+        FirebaseDb().getProduct(adapterProducto)
     }
 
 }

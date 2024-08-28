@@ -18,4 +18,8 @@
     <string name="email_cant_be_empty">El campo correo no puede estar vacio</string>
     <string name="password_cant_be_empty">El campo password no puede ser menor a 6 caracteres</string>
     <string name="categorias">Categorias</string>
+    <string name="producto">Producto</string>
+    <string name="price">Precio C$</string>
+    <string name="value_price">0.00</string>
+    <string name="descriptionproduct">Prueba en el diseño del card para los productos</string>
 </resources>

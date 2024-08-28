@@ -23,12 +23,22 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvCategorias"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle"
+
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvProductos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvTitle"
+        app:layout_constraintTop_toBottomOf="@id/rvCategorias"
 
         />
 
