@@ -23,6 +23,8 @@ firebaseFirestoreKtx = "25.0.0"
 firebaseStorageKtx = "21.0.0"
 firebaseBom = "33.1.1"
 services = "4.4.2"
+glide = "5.0.0-rc01"
+compiler = "5.0.0-rc01"
 
 
 [libraries]
@@ -48,6 +50,8 @@ firebase-boom = { module = "com.google.firebase:firebase-bom", version.ref = 'fi
 firebase-crashlitycs = {module = "com.google.firebase:firebase-crashlytics"}
 firebase-auth = {module = "com.google.firebase:firebase-auth-ktx"}
 firrebase-firestore = {module = "com.google.firebase:firebase-firestore"}
+glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "glide" }
+
 
 
 [plugins]
@@ -55,4 +59,5 @@ android-application = { id = "com.android.application", version.ref = "agp" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 googleServices = { id = "com.google.gms.google-services", version.ref = "services" }
 dagger = { id = "com.google.dagger.hilt.android", version.ref="dagger"}
+
 

@@ -1,11 +1,11 @@
 package com.harold.eshopbasic.adapter
-
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.harold.eshopbasic.R
 import com.harold.eshopbasic.data.Product
 
@@ -15,7 +15,6 @@ class ProductosViewHolder(view: View): RecyclerView.ViewHolder(view) {
     val descriptionProducto = view.findViewById<TextView>(R.id.tvProductDescription)
     val precio = view.findViewById<TextView>(R.id.tvValuePrice)
     val imgProducto = view.findViewById<ImageView>(R.id.ivProducto)
-
 
 }
 
@@ -44,13 +43,13 @@ class ProductosAdapter (private val productos: List<Product>) : RecyclerView.Ada
         holder.nameProducto.text = rows[position].title
         holder.descriptionProducto.text = rows[position].description
         holder.precio.text = rows[position].price
-
+        Glide.with(holder.itemView.context).load(rows[position].images).into(holder.imgProducto)
     }
-
     fun updateList(productos: List<Product>) {
         rows.clear()
         rows.addAll(productos)
         notifyDataSetChanged()
     }
+
 
 }

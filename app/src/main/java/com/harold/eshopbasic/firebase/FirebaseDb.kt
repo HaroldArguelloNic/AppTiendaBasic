@@ -1,6 +1,7 @@
 package com.harold.eshopbasic.firebase
 
 
+import android.annotation.SuppressLint
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -122,6 +123,7 @@ class FirebaseDb {
 
     }
 
+    @SuppressLint("SuspiciousIndentation")
     fun getProduct(productoAdapte: ProductosAdapter) {
         val allproduct= mutableListOf<Product>()
         productsCollection.orderBy("category").get()
